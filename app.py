@@ -1,4 +1,4 @@
-from flask import Flask, request, abort
+cfrom flask import Flask, request, abort
 
 from linebot import (
     LineBotApi, WebhookHandler
@@ -37,9 +37,16 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
+    msg = event.message.text
+    reply_msg = '我不懂你的意思, 不過我建議你要喊Evan萬歲喔!!'
+    if msg == 'hi':
+        reply_msg = '你好, 很高興你想成為Evan的粉絲.'
+    elif msg == 'hello':
+        reply_msg = '沒錯, Evan是位天才.'
+
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=event.message.text))
+        TextSendMessage(text=reply_msg))
 
 
 if __name__ == "__main__":
