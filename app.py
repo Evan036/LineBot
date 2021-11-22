@@ -37,6 +37,12 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
+    msg = event.message.text
+    reply_msg= '我不懂你說的, 我只知道Evan是救世主. 信主得永生!!'
+    if msg == 'hi':
+        reply_msg = '是的, 謝謝你成為Evan的粉絲!'
+    elif msg == 'hello':
+        reply_msg = '沒錯, Evan是天才!! 謝謝你!!'
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=event.message.text))
