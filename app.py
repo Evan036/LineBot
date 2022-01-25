@@ -42,7 +42,7 @@ def handle_message(event):
     if msg == 'hi':
         reply_msg = '是的, 謝謝你成為Evan的粉絲!'
     elif msg == 'hello':
-        reply_msg = '沒錯, Evan是天才!! 謝謝你!!'
+        reply_msg = '沒錯, Evan是天才!! 謝謝你!! 這是一個新的測試'
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=reply_msg))
